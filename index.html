@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sharma Hair Studio | Hair Salon in Paschim Vihar, Delhi</title>
+<meta name="description" content="Sharma Hair Studio – quality haircuts, styling and beard trimming in Paschim Vihar, Delhi. Demo website for a neighbourhood salon.">
+<style>
+/* ========== 1. BASE STYLES ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #252525;
+  background: #FAF8F5;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: #244A3B; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #244A3B;
+  outline-offset: 2px;
+}
+img { max-width: 100%; height: auto; display: block; }
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.section { padding: 2.5rem 0; }
+.section-alt { background: #F0EBE3; }
+h1, h2, h3 { line-height: 1.25; color: #252525; }
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.lead {
+  color: #444;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary {
+  background: #244A3B;
+  color: #fff;
+  border-color: #244A3B;
+}
+.btn-primary:hover { background: #1a382c; border-color: #1a382c; }
+.btn-secondary {
+  background: transparent;
+  color: #244A3B;
+  border-color: #244A3B;
+}
+.btn-secondary:hover { background: #244A3B; color: #fff; }
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+  line-height: 1.45;
+}
+
+/* ========== 2. HEADER ========== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FAF8F5;
+  border-bottom: 1px solid #E4E0DA;
+  padding: 0.7rem 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #252525;
+  line-height: 1.2;
+}
+.brand-sub {
+  font-size: 0.7rem;
+  color: #666;
+  letter-spacing: 0.02em;
+  margin-top: 0.1rem;
+}
+.header-cta {
+  flex-shrink: 0;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+/* ========== 3. HERO ========== */
+.hero {
+  padding: 2.5rem 0 2.25rem;
+  background: #F0EBE3;
+  border-bottom: 1px solid #E4E0DA;
+}
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #244A3B;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  max-width: 18ch;
+}
+.hero-desc {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.25rem;
+  max-width: 34ch;
+}
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.hero-location {
+  font-size: 0.85rem;
+  color: #666;
+}
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #E4E0DA;
+  background: #E4E0DA;
+}
+
+/* ========== 4. SERVICES ========== */
+.services-list {
+  list-style: none;
+  border-top: 1px solid #E4E0DA;
+}
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #E4E0DA;
+}
+.service-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.service-meta {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.15rem;
+}
+.service-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #244A3B;
+  white-space: nowrap;
+  text-align: right;
+}
+.services-cta { margin-top: 1.5rem; }
+
+/* ========== 5. REVIEWS ========== */
+.reviews-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 1rem;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.review-card {
+  background: #FAF8F5;
+  border: 1px solid #E4E0DA;
+  border-radius: 6px;
+  padding: 1.1rem 1.15rem;
+}
+.review-text {
+  font-size: 0.92rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.review-meta {
+  font-size: 0.78rem;
+  color: #666;
+}
+.review-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #244A3B;
+  background: #F0EBE3;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== 6. OPENING HOURS ========== */
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.hours-table th,
+.hours-table td {
+  text-align: left;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #E4E0DA;
+  vertical-align: top;
+}
+.hours-table th {
+  font-weight: 600;
+  width: 45%;
+  padding-right: 1rem;
+}
+.hours-table td { color: #333; }
+
+/* ========== 7. CONTACT ========== */
+.contact-block { margin-bottom: 1.25rem; }
+.contact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+.contact-value {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.contact-value a { color: #252525; }
+.map-wrap {
+  margin: 1.25rem 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #E4E0DA;
+  background: #E4E0DA;
+}
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 0;
+}
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* ========== 8. FOOTER ========== */
+.site-footer {
+  background: #244A3B;
+  color: #F0EBE3;
+  padding: 2rem 0 5.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.site-footer a { color: #F0EBE3; }
+.site-footer a:hover { text-decoration: underline; }
+.footer-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.footer-loc { margin-bottom: 0.5rem; opacity: 0.9; }
+.footer-phone { margin-bottom: 0.75rem; }
+.footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+.footer-demo {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.12);
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  margin-top: 0.25rem;
+}
+
+/* ========== 9. MOBILE STICKY BAR ========== */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: #FAF8F5;
+  border-top: 1px solid #E4E0DA;
+  padding: 0.6rem 0.75rem;
+  gap: 0.6rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+}
+.sticky-bar .btn {
+  flex: 1;
+  padding: 0.7rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ========== 10. RESPONSIVE STYLES ========== */
+@media (max-width: 767px) {
+  .sticky-bar { display: flex; }
+}
+@media (min-width: 480px) {
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .hero-actions .btn { width: auto; min-width: 10rem; }
+  .contact-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .contact-actions .btn { width: auto; min-width: 10rem; }
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reviews-grid .review-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 640px) {
+  .hero-grid {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hero-copy { flex: 1 1 52%; }
+  .hero-media { flex: 1 1 42%; }
+  .hero h1 { font-size: 1.9rem; }
+  .map-wrap iframe { height: 320px; }
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .reviews-grid .review-card:last-child {
+    grid-column: auto;
+  }
+}
+@media (min-width: 768px) {
+  .section { padding: 3rem 0; }
+  .hero { padding: 3rem 0 2.75rem; }
+  .hero h1 { font-size: 2.05rem; }
+  .map-wrap iframe { height: 350px; }
+  .site-footer { padding-bottom: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!--
+  ============================================================
+  EDIT THESE DETAILS BEFORE GIVING TO A REAL SALON OWNER
+  ============================================================
+  1. Business name  → search "Sharma Hair Studio"
+  2. Phone number   → 9711762633  and  tel:+919711762633
+  3. WhatsApp       → 919711762633  (in all wa.me links)
+  4. Address        → Paschim Vihar, Delhi...
+  5. Opening hours  → table in Opening Hours section
+  6. Services/prices → list under "Our Services"
+  7. WhatsApp texts → text= parameter in wa.me links
+  8. Maps search    → Google Maps iframe src and Get Directions URL
+  9. Reviews        → replace sample reviews with real ones
+  10. Photo         → replace Unsplash image with actual salon photo
+  ============================================================
+-->
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div>
+      <div class="brand-name">Sharma Hair Studio</div>
+      <div class="brand-sub">Haircuts • Styling • Grooming</div>
+    </div>
+    <a class="btn btn-primary header-cta" href="tel:+919711762633">Call Now</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Your Neighbourhood Salon</span>
+      <h1>A Fresh Look Starts Here.</h1>
+      <p class="hero-desc">Quality haircuts, styling and everyday grooming in Paschim Vihar, Delhi.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary"
+           href="https://wa.me/919711762633?text=Hello%20Sharma%20Hair%20Studio%2C%20I%27d%20like%20to%20enquire%20about%20your%20services%20and%20prices."
+           target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        <a class="btn btn-secondary" href="tel:+919711762633">Call the Salon</a>
+      </div>
+      <p class="hero-location">Serving Paschim Vihar, Delhi.</p>
+    </div>
+    <div class="hero-media">
+      <img class="hero-photo"
+           src="https://images.unsplash.com/photo-1706629506571-a6d86798916b?w=800&amp;q=80"
+           width="800" height="600"
+           alt="Interior of a modern hair salon with styling chairs and mirrors">
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <p class="lead">Straightforward pricing for your everyday grooming needs.</p>
+    <ul class="services-list">
+      <li class="service-item">
+        <div>
+          <div class="service-name">Classic Haircut</div>
+          <div class="service-meta">Approx. 30 min</div>
+        </div>
+        <div class="service-price">₹199</div>
+      </li>
+      <li class="service-item">
+        <div>
+          <div class="service-name">Haircut &amp; Styling</div>
+          <div class="service-meta">Approx. 40 min</div>
+        </div>
+        <div class="service-price">₹299</div>
+      </li>
+      <li class="service-item">
+        <div>
+          <div class="service-name">Beard Trim</div>
+          <div class="service-meta">Approx. 15 min</div>
+        </div>
+        <div class="service-price">₹99</div>
+      </li>
+      <li class="service-item">
+        <div>
+          <div class="service-name">Haircut &amp; Beard Combo</div>
+          <div class="service-meta">Approx. 40 min</div>
+        </div>
+        <div class="service-price">₹249</div>
+      </li>
+      <li class="service-item">
+        <div>
+          <div class="service-name">Hair Wash &amp; Styling</div>
+          <div class="service-meta">Approx. 20 min</div>
+        </div>
+        <div class="service-price">₹149</div>
+      </li>
+      <li class="service-item">
+        <div>
+          <div class="service-name">Hair Colour</div>
+          <div class="service-meta">Approx. 60 min</div>
+        </div>
+        <div class="service-price">₹599 onwards</div>
+      </li>
+    </ul>
+    <p class="note">These are sample demonstration prices only. Confirm current rates and availability with the salon before booking.</p>
+    <div class="services-cta">
+      <a class="btn btn-secondary"
+         href="https://wa.me/919711762633?text=Hello%20Sharma%20Hair%20Studio%2C%20I%27d%20like%20to%20ask%20about%20a%20service%20and%20its%20price."
+         target="_blank" rel="noopener noreferrer">Ask About a Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="section section-alt" id="reviews">
+  <div class="container">
+    <h2>What Customers Say</h2>
+    <p class="reviews-label">Sample Reviews — Demo Content</p>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <span class="review-tag">Sample Review</span>
+        <p class="review-text">“A clean and welcoming place for a fresh haircut. The service was simple and convenient.”</p>
+        <p class="review-meta">— Sample Customer 1</p>
+      </article>
+      <article class="review-card">
+        <span class="review-tag">Sample Review</span>
+        <p class="review-text">“Good value for money and a comfortable atmosphere. Would consider visiting again.”</p>
+        <p class="review-meta">— Sample Customer 2</p>
+      </article>
+      <article class="review-card">
+        <span class="review-tag">Sample Review</span>
+        <p class="review-text">“A straightforward neighbourhood salon for everyday grooming and styling.”</p>
+        <p class="review-meta">— Sample Customer 3</p>
+      </article>
+    </div>
+    <p class="note">These are fictional sample reviews for demonstration only. They are not real customer feedback.</p>
+  </div>
+</section>
+
+<!-- ========== OPENING HOURS ========== -->
+<section class="section" id="hours">
+  <div class="container">
+    <h2>Opening Hours</h2>
+    <p class="lead">Plan your visit during these times.</p>
+    <table class="hours-table">
+      <tbody>
+        <tr>
+          <th scope="row">Monday – Saturday</th>
+          <td>10:00 AM – 9:00 PM</td>
+        </tr>
+        <tr>
+          <th scope="row">Sunday</th>
+          <td>11:00 AM – 6:00 PM</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Hours and service availability shown here are demonstration details. Please confirm them with the salon.</p>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <h2>Visit Sharma Hair Studio</h2>
+    <p class="lead">Find us in Paschim Vihar, Delhi.</p>
+
+    <div class="contact-block">
+      <div class="contact-label">Address</div>
+      <div class="contact-value">Paschim Vihar,<br>New Delhi, Delhi, India</div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        title="Map showing Paschim Vihar, Delhi area"
+        src="https://maps.google.com/maps?q=Paschim%20Vihar%2C%20New%20Delhi%2C%20Delhi%2C%20India&amp;output=embed"
+        width="100%"
+        height="280"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+
+    <p class="note">This map shows the Paschim Vihar neighbourhood. It does not confirm an exact verified shopfront for this demo business.</p>
+
+    <div class="contact-block" style="margin-top:1.25rem;">
+      <div class="contact-label">Phone</div>
+      <div class="contact-value"><a href="tel:+919711762633">+91 97117 62633</a></div>
+    </div>
+
+    <div class="contact-actions">
+      <a class="btn btn-primary"
+         href="https://wa.me/919711762633?text=Hello%20Sharma%20Hair%20Studio%2C%20I%27d%20like%20to%20enquire%20about%20your%20services%20and%20prices."
+         target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a class="btn btn-secondary"
+         href="https://www.google.com/maps/search/?api=1&amp;query=Paschim%20Vihar%2C%20New%20Delhi%2C%20Delhi%2C%20India"
+         target="_blank" rel="noopener noreferrer">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-name">Sharma Hair Studio</div>
+    <div class="footer-loc">Paschim Vihar, Delhi</div>
+    <div class="footer-phone"><a href="tel:+919711762633">+91 97117 62633</a></div>
+    <div class="footer-copy">&copy; 2026 Sharma Hair Studio</div>
+    <div class="footer-demo">Demo Website — Sample Business Information</div>
+  </div>
+</footer>
+
+<!-- ========== MOBILE STICKY BAR ========== -->
+<div class="sticky-bar" aria-label="Quick contact">
+  <a class="btn btn-secondary" href="tel:+919711762633">Call</a>
+  <a class="btn btn-primary"
+     href="https://wa.me/919711762633?text=Hello%20Sharma%20Hair%20Studio%2C%20I%27d%20like%20to%20enquire%20about%20your%20services%20and%20prices."
+     target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
+
+</body>
+</html>
